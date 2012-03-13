@@ -1,0 +1,25 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           sfPlopShopTax
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              sfPlopShopTax
+    plural:                sfPlopShopTaxs
+    route_prefix:          sf_plop_shop_tax
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        title:             Taxes list
+        display:           [name, rate]
+      filter:  ~
+      form:    ~
+      edit:
+        title:             Editing tax "%%name%%"
+      new:
+        title:             New tax

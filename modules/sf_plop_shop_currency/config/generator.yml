@@ -1,0 +1,25 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           sfPlopShopCurrency
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              sfPlopShopCurrency
+    plural:                sfPlopShopCurrencys
+    route_prefix:          sf_plop_shop_currency
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        title:             Currencies list
+        display:           [name, code, rate]
+      filter:  ~
+      form:    ~
+      edit:
+        title:             Editing currency "%%name%%"
+      new:
+        title:             New currency

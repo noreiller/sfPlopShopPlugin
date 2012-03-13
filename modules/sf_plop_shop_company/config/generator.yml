@@ -1,0 +1,25 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           sfPlopShopCompany
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              sfPlopShopCompany
+    plural:                sfPlopShopCompanys
+    route_prefix:          sf_plop_shop_company
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:        
+        title:             Companies list
+        display:           [name, created_at, updated_at]
+      filter:  ~
+      form:    ~
+      edit:
+        title:             Editing company "%%name%%"
+      new:
+        title:             New company

@@ -1,0 +1,55 @@
+# sfPlopShopPlugin
+sfPlopShopTax:
+  sf_plop_shop_tax_19_6:
+    name:           Default tax
+    rate:           19.6
+
+sfPlopShopCurrency:
+  sf_plop_shop_currency_euro:
+    name:           Euro
+    code:           "€"
+    rate:           1
+
+sfPlopShopDuration:
+  sf_plop_shop_duration_month_1:
+    name:           month-1
+  sf_plop_shop_duration_month_3:
+    name:           month-3
+  sf_plop_shop_duration_month_6:
+    name:           month-6
+  sf_plop_shop_duration_month_12:
+    name:           month-12
+
+sfPlopShopDurationI18n:
+  sf_plop_shop_duration_month_1_fr:
+    id:             sf_plop_shop_duration_month_1
+    locale:         fr
+    description:    1 mois
+  sf_plop_shop_duration_month_1_en:
+    id:             sf_plop_shop_duration_month_1
+    locale:         en
+    description:    1 month
+  sf_plop_shop_duration_month_3_fr:
+    id:             sf_plop_shop_duration_month_3
+    locale:         fr
+    description:    3 mois
+  sf_plop_shop_duration_month_3_en:
+    id:             sf_plop_shop_duration_month_3
+    locale:         en
+    description:    3 months
+  sf_plop_shop_duration_month_6_fr:
+    id:             sf_plop_shop_duration_month_6
+    locale:         fr
+    description:    6 mois
+  sf_plop_shop_duration_month_6_en:
+    id:             sf_plop_shop_duration_month_6
+    locale:         en
+    description:    6 months
+  sf_plop_shop_duration_month_12_fr:
+    id:             sf_plop_shop_duration_month_12
+    locale:         fr
+    description:    1 an
+  sf_plop_shop_duration_month_12_en:
+    id:             sf_plop_shop_duration_month_12
+    locale:         en
+    description:    1 year

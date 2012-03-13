@@ -1,0 +1,63 @@
+sf_plop_shop_company:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                sfPlopShopCompany
+    module:               sf_plop_shop_company
+    prefix_path:          /shop-admin/:sf_culture/sf_plop_shop_company
+    column:               id
+    with_wildcard_routes: true
+
+sf_plop_shop_currency:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                sfPlopShopCurrency
+    module:               sf_plop_shop_currency
+    prefix_path:          /shop-admin/:sf_culture/sf_plop_shop_currency
+    column:               id
+    with_wildcard_routes: true
+
+sf_plop_shop_tax:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                sfPlopShopTax
+    module:               sf_plop_shop_tax
+    prefix_path:          /shop-admin/:sf_culture/sf_plop_shop_tax
+    column:               id
+    with_wildcard_routes: true
+
+sf_plop_shop_order:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                sfPlopShopOrder
+    module:               sf_plop_shop_order
+    prefix_path:          /shop-admin/:sf_culture/sf_plop_shop_order
+    column:               id
+    with_wildcard_routes: true
+
+sf_plop_shop_product:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                sfPlopShopProduct
+    module:               sf_plop_shop_product
+    prefix_path:          /shop-admin/:sf_culture/sf_plop_shop_product
+    column:               id
+    with_wildcard_routes: true
+
+sf_plop_shop_category:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                sfPlopShopCategory
+    module:               sf_plop_shop_category
+    prefix_path:          /shop-admin/:sf_culture/sf_plop_shop_category
+    column:               id
+    with_wildcard_routes: true
+
+sf_plop_shop_duration:
+  class: sfPropelORMRouteCollection
+  options:
+    model:                sfPlopShopDuration
+    module:               sf_plop_shop_duration
+    prefix_path:          /shop-admin/:sf_culture/sf_plop_shop_duration
+    column:               id
+    with_wildcard_routes: true
+

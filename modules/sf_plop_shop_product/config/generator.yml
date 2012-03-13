@@ -1,0 +1,27 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           sfPlopShopProduct
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              sfPlopShopProduct
+    plural:                sfPlopShopProducts
+    route_prefix:          sf_plop_shop_product
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        sfPlopShopCategory: { label: Category }
+        completePriceWithDuration: { label: Price }
+      list:    
+        title:             Product list
+        display:           [name, sfPlopShopCategory, is_published, is_active, is_pack, completePriceWithDuration, taxRate, created_at, updated_at]
+      filter:  ~
+      form:    ~
+      edit:
+        title:              Editing product "%%name%%"
+      new:
+        title:              New product

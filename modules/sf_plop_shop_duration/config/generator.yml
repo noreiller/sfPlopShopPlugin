@@ -1,0 +1,25 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           sfPlopShopDuration
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              sfPlopShopDuration
+    plural:                sfPlopShopDurations
+    route_prefix:          sf_plop_shop_duration
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  ~
+      list:    
+        title:             Durations list
+        display:           [name, created_at, updated_at]
+      filter:  ~
+      form:    ~
+      edit:
+        title:             Editing duration "%%name%%"
+      new:
+        title:             New duration

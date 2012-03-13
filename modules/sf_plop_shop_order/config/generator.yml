@@ -1,0 +1,28 @@
+generator:
+  class: sfPropelGenerator
+  param:
+    model_class:           sfPlopShopOrder
+    theme:                 admin15
+    non_verbose_templates: true
+    with_show:             false
+    singular:              sfPlopShopOrder
+    plural:                sfPlopShopOrders
+    route_prefix:          sf_plop_shop_order
+    with_propel_route:     1
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:  
+        sfGuardUser: { label: User }
+        sfPlopShopCurrency: { label: Currency }
+      list:        
+        title:             Orders list
+        display:           [sfGuardUser, total_net_price, total_amount, sfPlopShopCurrency, is_ready, in_process, is_paid, created_at, updated_at]
+      filter:  ~
+      form:    ~
+      edit:
+        title:             Editing order
+
+      new:
+        title:             New order

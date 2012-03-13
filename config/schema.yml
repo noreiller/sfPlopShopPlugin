@@ -1,0 +1,113 @@
+propel:
+  _attributes:    { package: plugins.sfPlopShopPlugin.lib.model }
+
+  sf_plop_shop_company:
+    _attributes:  { phpName: sfPlopShopCompany }
+    id:
+    name:         { type: varchar, size: 255, required: true, index: unique }
+    description:  { type: longvarchar }
+    created_at:   { type: timestamp }
+    updated_at:   { type: timestamp }
+
+  sf_plop_shop_tax:
+    _attributes:  { phpName: sfPlopShopTax }
+    id:
+    name:         { type: varchar, size: 255, required: true, index: unique }
+    rate:         { type: float }
+
+  sf_plop_shop_currency:
+    _attributes:  { phpName: sfPlopShopCurrency }
+    id:
+    name:         { type: varchar, size: 255, required: true, index: unique }
+    code:         { type: varchar, size: 4 }
+    rate:         { type: float }
+
+  sf_plop_shop_duration:
+    _attributes:  { phpName: sfPlopShopDuration }
+    _propel_behaviors:
+      i18n:
+        default_locale: "fr"
+        locale_alias:   "culture"
+        i18n_columns:   "description"
+    id:
+    name:         { type: varchar, size: 255, required: true, index: unique }
+    description:  { type: longvarchar }
+    created_at:   { type: timestamp }
+    updated_at:   { type: timestamp }
+
+  sf_plop_shop_category:
+    _attributes:  { phpName: sfPlopShopCategory }
+    _propel_behaviors:
+      i18n:
+        default_locale: "fr"
+        locale_alias:   "culture"
+        i18n_columns:   "description"
+    id:
+    name:         { type: varchar, size: 255, required: true, index: unique }
+    description:  { type: longvarchar }
+    created_at:   { type: timestamp }
+    updated_at:   { type: timestamp }
+
+  sf_plop_shop_product:
+    _attributes:  { phpName: sfPlopShopProduct }
+    _propel_behaviors:
+      i18n:
+        default_locale: "fr"
+        locale_alias:   "culture"
+        i18n_columns:   "title, description"
+    id:
+    category_id:  { type: integer, foreignTable: sf_plop_shop_category, foreignReference: id, onDelete: setnull }
+    name:         { type: varchar, size: 255, required: true, index: unique }
+    title:        { type: varchar, size: 255, required: true }
+    description:  { type: longvarchar }
+    image_id:     { type: integer, foreignTable: sf_asset, foreignReference: id, onDelete: restrict }
+    is_pack:      { type: boolean, default: 0 }
+    price:        { type: float }
+    net_price:    { type: float }
+    tax_id:       { type: integer, foreignTable: sf_plop_shop_tax, foreignReference: id, onDelete: setnull }
+    duration_id:  { type: integer, foreignTable: sf_plop_shop_duration, foreignReference: id, onDelete: setnull }
+    currency_id:  { type: integer, foreignTable: sf_plop_shop_currency, foreignReference: id, onDelete: setnull }
+    is_recurrent: { type: boolean, default: 0 }
+    is_published: { type: boolean, default: 0 }
+    is_active:    { type: boolean, default: 0 }
+    created_at:   { type: timestamp }
+    updated_at:   { type: timestamp }
+
+  sf_plop_shop_product_pack:
+    _attributes:  { phpName: sfPlopShopProductPack }
+    id:
+    pack_id:   { type: integer, foreignTable: sf_plop_shop_product, foreignReference: id, required: true, onDelete: cascade }
+    product_id:   { type: integer, foreignTable: sf_plop_shop_product, foreignReference: id, required: true, onDelete: cascade }
+
+  sf_plop_shop_cart:
+    _attributes:  { phpName: sfPlopShopCart }
+    id:
+    user_id:      { type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade }
+    created_at:   { type: timestamp }
+    updated_at:   { type: timestamp }
+
+  sf_plop_shop_cart_product:
+    _attributes:  { phpName: sfPlopShopCartProduct }
+    cart_id:      { type: integer, foreignTable: sf_plop_shop_cart, foreignReference: id, required: true, onDelete: cascade }
+    product_id:   { type: integer, foreignTable: sf_plop_shop_product, foreignReference: id, required: true, onDelete: cascade }
+    quantity:     { type: integer, default: 1 }
+
+  sf_plop_shop_order:
+    _attributes:  { phpName: sfPlopShopOrder }
+    id:
+    user_id:      { type: integer, foreignTable: sf_guard_user, foreignReference: id, required: true, onDelete: cascade }
+    duration_id:  { type: integer, foreignTable: sf_plop_shop_duration, foreignReference: id, onDelete: restrict }
+    cart_id:      { type: integer, foreignTable: sf_plop_shop_cart, foreignReference: id, onDelete: setnull }
+    address_id:   { type: integer, foreignTable: sf_guard_user_address, foreignReference: id, onDelete: restrict }
+    total_price:  { type: float }
+    total_tax:    { type: float }
+    total_net_price: { type: float }
+    total_amount: { type: float }
+    currency_id:  { type: integer, foreignTable: sf_plop_shop_currency, foreignReference: id, onDelete: restrict }
+    is_paid:      { type: boolean, default: 0 }
+    is_ready:     { type: boolean, default: 0 }
+    in_process:   { type: boolean, default: 0 }
+    valid_from_date: { type: timestamp }
+    valid_to_date: { type: timestamp }
+    created_at:   { type: timestamp }
+    updated_at:   { type: timestamp }
